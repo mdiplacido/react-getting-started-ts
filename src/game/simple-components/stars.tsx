@@ -1,10 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react';
 
-export const Stars = () => {
-    const numberOfStars = 1 + Math.floor(Math.random() * 9);
+export interface IStarsProp {
+    numberOfStars: number;
+}
 
-    const stars = new Array(numberOfStars)
+export const Stars = (props: IStarsProp) => {
+
+    const stars = new Array(props.numberOfStars)
         .fill(null)
         .map((_, i) => <FontAwesomeIcon key={i} icon="stroopwafel" />)
 
