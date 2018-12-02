@@ -1,14 +1,23 @@
 import * as React from 'react';
 
 export interface INumbersProp {
-    selectedNumbers: number[]
+    selectedNumbers: number[];
+    usedNumbers: number[];
     selectNumber: (n: number) => void;
 }
 
 export const Numbers = (props: INumbersProp) => {
-    const numberClassName = (n: number) => props.selectedNumbers.some(current => current === n) ?
-        'selected' :
-        undefined;
+    const numberClassName = (n: number) => {
+        if (props.usedNumbers.some(current => current === n)) {
+            return 'used';
+        }
+
+        if (props.selectedNumbers.some(current => current === n)) {
+            return 'selected';
+        }
+
+        return undefined;
+    };
 
     return (
         <div className="card text-center">
