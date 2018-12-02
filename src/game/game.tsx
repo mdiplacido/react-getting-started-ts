@@ -18,11 +18,11 @@ export class Game extends React.Component<any, IGameState> {
     }
 
     public selectNumber = (clickedNumber: number) => {
-        this.setState(prevState => ({ selectedNumbers: [...prevState.selectedNumbers, clickedNumber] }));
+        this.setState(prevState => ({ answerIsCorrect: null, selectedNumbers: [...prevState.selectedNumbers, clickedNumber] }));
     };
 
     public removeNumber = (clickedNumber: number) => {
-        this.setState(prevState => ({ selectedNumbers: prevState.selectedNumbers.filter(c => c !== clickedNumber) }));
+        this.setState(prevState => ({ answerIsCorrect: null, selectedNumbers: prevState.selectedNumbers.filter(c => c !== clickedNumber) }));
     }
 
     public checkAnswer = () => {
