@@ -25,7 +25,7 @@ export const Numbers = (props: INumbersProp) => {
                 {Numbers.list.map((n, i) => <span
                     key={i}
                     // tslint:disable-next-line:jsx-no-lambda
-                    onClick={() => !props.selectedNumbers.some(e => e === n) && props.selectNumber(n)}
+                    onClick={() => ![...props.selectedNumbers, ...props.usedNumbers].some(e => e === n) && props.selectNumber(n)}
                     className={numberClassName(n)}>{n}</span>)}
 
                 {/* <span className="selected">2</span>
